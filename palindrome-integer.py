@@ -13,4 +13,6 @@ class Solution:
 
         return reverseNumber == number
 
-print(Solution().isPalindrome(10))
+number = 10
+print(Solution().isPalindrome(number))
+print(number)
