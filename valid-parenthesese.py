@@ -1,19 +1,19 @@
 class Solution:
     def isValid(self, parentheses: str) -> bool:
-        parenthesesMatch = { '(': ')', '{': '}', '[':']'}
+        parenthesesMatch = { '(': ')', '{': '}', '[': ']'}
         parenthesesStack = []
         for parenthese in parentheses:
-            if parenthesesMatch[parenthese] is not None:
+            if parenthesesMatch.get(parenthese) != None:
                 parenthesesStack.append(parenthese)
             else:
-                if parenthesesStack.count <= 0:
+                if len(parenthesesStack) <= 0:
                     return False
-                if parenthesesMatch[parenthesesStack.pop] != parenthese:
+                if parenthesesMatch.get(parenthesesStack[-1]) != parenthese:
                     return False
-                parenthesesStack.remove(parenthesesStack.pop)
-        return parenthesesStack.count == 0 
+                parenthesesStack.pop()
+        return len(parenthesesStack) == 0 
 
-print(Solution().isValid("[{()}]"))
+print(Solution().isValid(""))
                 
                     
             
